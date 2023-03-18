@@ -1,28 +1,48 @@
 <html>
   <body>
-    <div id="teste"></div>
+    
     <script>
 
       function* conversar(){
-        console.log('comando 1')
-        console.log('comando 2')
-        console.log('comando 3')
+        //escopo próprio
+        
         let opcao = yield 'e aí, tudo bel?'
 
-        console.log('comando 4')
-        console.log('comando 5')
-        console.log(opcao)
+        //o parâmetro enviado no next
         yield 'Ótimo, fico feliz'
+
+        yield 'Terceira etapa: ' + opcao
+        yield 'Quarta etapa: ' + opcao
+        yield 'Quinta etapa: ' + opcao
+
       }
 
-      let conversa = conversar() //objrto iterator
+      let conversa = conversar() //objrto iterator      
 
-      let iteracao = conversa.next()
-      console.log(iteracao)
+      function acao(){
 
-      iteracao = conversa.next('sim')
-      console.log(iteracao)
+        let iteracao = conversa.next()
+        console.log(iteracao)
+
+        iteracao = conversa.next('sim')
+        console.log(iteracao)
+
+        iteracao = conversa.next()
+        console.log(iteracao)
+
+        iteracao = conversa.next()
+        console.log(iteracao)
+        
+        iteracao = conversa.next()
+        console.log(iteracao)
+
+      }
 
     </script>
+
+    <div id="teste">
+      <button type="button" onclick="acao()">Avançar</button>
+    </div>
+
   </body>
 </html>
