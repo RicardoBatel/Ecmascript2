@@ -1,0 +1,28 @@
+<html>
+  <body>
+    <div id="teste"></div>
+    <script>
+
+      function* conversar(){
+        console.log('comando 1')
+        console.log('comando 2')
+        console.log('comando 3')
+        let opcao = yield 'e aí, tudo bel?'
+
+        console.log('comando 4')
+        console.log('comando 5')
+        console.log(opcao)
+        yield 'Ótimo, fico feliz'
+      }
+
+      let conversa = conversar() //objrto iterator
+
+      let iteracao = conversa.next()
+      console.log(iteracao)
+
+      iteracao = conversa.next('sim')
+      console.log(iteracao)
+
+    </script>
+  </body>
+</html>
