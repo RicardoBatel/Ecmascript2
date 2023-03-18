@@ -4,9 +4,9 @@
     <script>
 
       function* testeGenerator(){
-        yield console.log('Teste 1')
-        yield console.log('Teste 2')
-        yield console.log('Teste 3')
+        yield 'Teste 1'
+        yield 'Teste 2'
+        yield 'Teste 3'
 
         return 'Teste 4'
       }
@@ -15,11 +15,11 @@
 
       //console.log(meuGenerator)
 
-      meuGenerator.next()
+      console.log(meuGenerator.next())
       console.log('-------')
-      meuGenerator.next()
+      console.log(meuGenerator.next())
       console.log('-------')
-      meuGenerator.next()
+      console.log(meuGenerator.next())
       console.log('-------')
       console.log(meuGenerator.next())
 
