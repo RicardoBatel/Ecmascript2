@@ -3,6 +3,7 @@
     
     <script>
 
+      /*
       function* conversar(){
         //escopo próprio
         
@@ -14,6 +15,8 @@
         yield 'Terceira etapa: ' + opcao
         yield 'Quarta etapa: ' + opcao
         yield 'Quinta etapa: ' + opcao
+
+        //mesmo nas etapas seguintes a variável 'opção' se mantem pois ela está no próprio escopo do objeto conversar
 
       }
 
@@ -37,11 +40,77 @@
         console.log(iteracao)
 
       }
+      */
+
+      function* conversar(){
+        
+        //escopo próprio
+        
+        //1 bloco
+        let opcao = yield 'e aí, tudo bel?'
+      
+        //2 bloco
+        //o parâmetro enviado no next
+        
+        if(opcao == 'sim'){
+          yield 'Ótimo, fico feliz'
+
+          opcao = yield 'Como posso te ajudar? Quer uma piada para começar?'
+
+          if(opcao == 'sim'){
+
+            fetch('dados/piadas.json ')
+              .then(resposta => resposta.json())
+              .then(piadas => {
+                let idx = Math.floor((Math.random() * 10))
+                let piada = piadas[idx]
+
+                console.log(piada.piada)
+
+                setTimeout(() => {
+                  console.log(piada.resposta)
+                  console.log('kkkkkkkk muito boa né!')                 
+
+                }, 4000)
+
+              })
+
+              yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente'
+
+          } else{
+            yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente'
+          }
+
+        } else {
+          yield 'Respire fundo e tenha paciência'
+
+          yield 'Digite 1 para compras, 2 para vendas ou 3 para falar com um atendente'
+        }
+
+        return 'Atendimento finalizado'
+
+      }
+
+      let conversa = conversar() //objrto iterator      
+
+      function acao(){
+
+        let resposta = document.getElementById('resposta').value
+
+        let iteracao = conversa.next(resposta)
+        console.log(iteracao)
+
+        if(iteracao.done){
+          document.getElementById('teste').style.display = 'none'
+        }
+
+      }
 
     </script>
 
     <div id="teste">
       <button type="button" onclick="acao()">Avançar</button>
+      Resposta: <input type="text" id="resposta">
     </div>
 
   </body>
