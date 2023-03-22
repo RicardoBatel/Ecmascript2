@@ -1,6 +1,26 @@
 <html>
   <body>
     <script>
+
+      let promessa = new Promise((resolve, reject) => {
+        try {
+
+          setTimeout(() => {
+            resolve('Promessa concluída com sucesso!')
+          }, 3000)
+
+        } catch(e){
+
+          setTimeout(()=>{
+            reject(e)
+          }, 3000)
+
+        }
+      })
+
+      console.log(promessa)
+
+      setTimeout(()=>{console.log(promessa)},3000)
       
     </script>
   </body>
