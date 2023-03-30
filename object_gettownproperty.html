@@ -20,11 +20,39 @@
       //descrição de propriedades
       console.log(Object.getOwnPropertyDescriptors(objeto))
 
+      console.log('--------------')
+
+      /*
       //Descritor Writable: quando definido como false, ele indica que o valor da propriedade não poderá ser modificada
       Object.defineProperty(objeto, 'nome', {
         value: 'Ricardo Batel',
         writable: false
       })
+
+      console.log(Object.getOwnPropertyDescriptors(objeto))
+      */
+
+      //Descritor Enumerable: quando definido como false, a propriedade em questão não é repetida em laços de repetição
+
+      for(let propriedade in objeto){
+        console.log(propriedade, objeto[propriedade])
+      }
+
+      Object.defineProperty(objeto, 'hobbies', {
+        enumerable: false
+      })
+
+      Object.defineProperty(objeto, 'profissional', {
+        enumerable: false
+      })
+
+      console.log(Object.getOwnPropertyDescriptors(objeto))
+
+      console.log('-----------------')
+
+      for(let propriedade in objeto){
+        console.log(propriedade, objeto[propriedade])
+      }
 
     </script>
   </body>
