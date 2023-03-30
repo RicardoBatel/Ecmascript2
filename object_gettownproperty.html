@@ -15,10 +15,16 @@
         pais: 'Brasil'
       }
 
-      console.log(objeto)
+     
 
       //descrição de propriedades
       console.log(Object.getOwnPropertyDescriptors(objeto))
+
+      //Descritor Writable: quando definido como false, ele indica que o valor da propriedade não poderá ser modificada
+      Object.defineProperty(objeto, 'nome', {
+        value: 'Ricardo Batel',
+        writable: false
+      })
 
     </script>
   </body>
