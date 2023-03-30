@@ -32,6 +32,7 @@
       console.log(Object.getOwnPropertyDescriptors(objeto))
       */
 
+      /*
       //Descritor Enumerable: quando definido como false, a propriedade em questão não é repetida em laços de repetição
 
       for(let propriedade in objeto){
@@ -53,6 +54,14 @@
       for(let propriedade in objeto){
         console.log(propriedade, objeto[propriedade])
       }
+      */
+
+      //Descritor Configurable: quando definido como false, indica que a propriedade não pode ser deletada e tambem não pordemos mais modificar os descritores, exceto a mudança de writable para false
+      Object.defineProperty(objeto, 'pais', {        
+        configurable: false
+      })
+
+      console.log(Object.getOwnPropertyDescriptors(objeto))
 
     </script>
   </body>
