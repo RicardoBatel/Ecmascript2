@@ -1,0 +1,49 @@
+<html>
+  <body>
+    
+  </body>
+
+  <script>
+
+    class Pessoa {
+
+      #humor = null
+
+      #mensagens = [
+        'Seja feliz!',
+        'Não estou para conversa hoje'
+      ]
+
+      constructor(nome) {
+        this.#mudaHumor()
+        this.nome = nome
+      }
+
+      dizerOi() {
+        return `Olá, meu nome é ${this.nome}`
+      }
+
+      getHumor(){
+        return this.#humor
+      }
+
+      #mudaHumor(){
+        //0 e 1
+        this.#humor = Math.floor(Math.random()*2)
+      }
+
+      getMensagem(){
+        return this.#mensagens[this.#humor]
+      }
+
+    }
+
+    let p = new Pessoa('Ricardo')
+    console.log(p.dizerOi())
+
+    //--
+    console.log(p.getMensagem())
+
+  </script>
+
+</html>
